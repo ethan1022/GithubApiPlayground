@@ -17,17 +17,23 @@ struct UserListView: View {
         NavigationView {
             VStack {
                 Text("Github Users")
-                List(userModel.users) { user in
-                    NavigationLink {
-                        UserDetailView(userName: user.login)
-                    } label: {
-                        userCell(user)
-                            .onAppear {
-                                if userModel.users.last == user {
-                                    userModel.fetchUsersList(since: user.id)
+                if let users = userModel.users {
+                    List(users) { user in
+                        NavigationLink {
+                            UserDetailView(userName: user.login)
+                        } label: {
+                            userCell(user)
+                                .onAppear {
+                                    if users.last == user {
+                                        userModel.fetchUsersList(since: user.id)
+                                    }
                                 }
-                            }
+                        }
                     }
+                } else if let error = userModel.error {
+                    Text("You got an error \(error.localizedDescription)")
+                } else {
+                    LoadingView()
                 }
             }
         }

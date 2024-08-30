@@ -7,20 +7,26 @@
 
 import Foundation
 
+@MainActor
 class UserListModel: ObservableObject {
-    @Published var users = [User]()
+    @Published var users: [User]?
+    @Published var error: Error?
     
     func fetchUsersList(since id: Int) {
         guard let usersRequest = UserRequest().userListRequest(since: id) else {
             return
         }
-        
-        ApiService.shared.fetchData(with: usersRequest, type: [User].self) { result in
-            switch result {
-            case .success(let users):
-                self.users.append(contentsOf: users)
-            case .failure(let error):
-                print("error \(error)")
+        Task {
+            do {
+                let users = try await ApiService.shared.fetchData(with: usersRequest, type: [User].self)
+                if self.users != nil {
+                    self.users?.append(contentsOf: users)
+                } else {
+                    self.users = users
+                }
+            } catch {
+                print("error: \(error)")
+                self.error = error
             }
         }
     }

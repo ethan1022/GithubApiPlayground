@@ -16,8 +16,14 @@ struct UserDetailView: View {
     
     var body: some View {
         VStack {
-            userInfoView
-                .padding(.vertical, 20)
+            if let userDetail = userDetailModel.userDetail {
+                userInfoView(userDetail)
+                    .padding(.vertical, 20)
+            } else if let error = userDetailModel.error {
+                
+            } else {
+                LoadingView()
+            }
             
             HStack {
                 Text("All Public Repositories")
@@ -25,20 +31,26 @@ struct UserDetailView: View {
                     .font(.title3)
                 Spacer()
             }
-            List(userRepoModel.userReposWithoutFork) { userRepo in
-                Button(action: {
-                    self.selectedRepo = userRepo
-                }, label: {
-                    repoCell(userRepo)
-                        .onAppear {
-                            if userRepo == userRepoModel.userReposWithoutFork.last {
-                                userRepoModel.loadMore(with: userName)
+            if let userReposWithoutFork = userRepoModel.userReposWithoutFork {
+                List(userReposWithoutFork) { userRepo in
+                    Button(action: {
+                        self.selectedRepo = userRepo
+                    }, label: {
+                        repoCell(userRepo)
+                            .onAppear {
+                                if userRepo == userReposWithoutFork.last {
+                                    userRepoModel.loadMore(with: userName)
+                                }
                             }
-                        }
-                })
-                .sheet(item: $selectedRepo, content: { selectRepo in
-                    RepoDetailView(urlString: selectRepo.html_url)
-                })
+                    })
+                    .sheet(item: $selectedRepo, content: { selectRepo in
+                        RepoDetailView(urlString: selectRepo.html_url)
+                    })
+                }
+            } else if let error = userRepoModel.error {
+                
+            } else {
+                LoadingView()
             }
         }
         .onAppear {
@@ -47,31 +59,31 @@ struct UserDetailView: View {
         }
     }
     
-    var userInfoView: some View {
+    func userInfoView(_ userDetail: UserDetail) -> some View {
         HStack {
-            if let url = URL(string: userDetailModel.userDetail.avatar_url) {
+            if let url = URL(string: userDetail.avatar_url) {
                 ImageView(url: url)
                     .frame(width: 80, height: 80)
                     .cornerRadius(40)
                     .padding(.horizontal, 15)
             }
             VStack(alignment: .leading) {
-                Text(userDetailModel.userDetail.name ?? "Anonymous")
+                Text(userDetail.name ?? "Anonymous")
                     .font(.title2)
-                    .foregroundStyle(userDetailModel.userDetail.name != nil ? Color.primary : Color.gray)
-                Text("ID: \(userDetailModel.userDetail.login)")
+                    .foregroundStyle(userDetail.name != nil ? Color.primary : Color.gray)
+                Text("ID: \(userDetail.login)")
                     .font(.subheadline)
                     .foregroundStyle(.gray)
                 HStack(spacing: 4) {
                     Image(systemName: "person")
                         .resizable()
                         .frame(width:12, height: 12)
-                    Text("\(userDetailModel.userDetail.followers) Followers")
+                    Text("\(userDetail.followers) Followers")
                         .font(.footnote)
-                    Text("\(userDetailModel.userDetail.following) Following")
+                    Text("\(userDetail.following) Following")
                         .font(.footnote)
                 }
-                if let bio = userDetailModel.userDetail.bio {
+                if let bio = userDetail.bio {
                     Text(bio)
                         .font(.footnote)
                         .multilineTextAlignment(.leading)

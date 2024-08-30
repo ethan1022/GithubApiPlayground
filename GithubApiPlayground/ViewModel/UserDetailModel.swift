@@ -7,21 +7,23 @@
 
 import Foundation
 
+@MainActor
 class UserDetailModel: ObservableObject {
-    @Published var userDetail = UserDetail()
+    @Published var userDetail: UserDetail?
+    @Published var error: Error?
     
     func fetchUserDetail(with userName: String) {
         guard let userDetailRequest = UserRequest().userInfoRequest(userName: userName) else {
             return
         }
         
-        ApiService.shared.fetchData(with: userDetailRequest, type: UserDetail.self) { result in
-            switch result {
-            case .success(let userDetail):
-                print("userDetail \(userDetail)")
+        Task {
+            do {
+                let userDetail = try await ApiService.shared.fetchData(with: userDetailRequest, type: UserDetail.self)
                 self.userDetail = userDetail
-            case .failure(let error):
-                print("error \(error)")
+            } catch {
+                print("error: \(error)")
+                self.error = error
             }
         }
     }
