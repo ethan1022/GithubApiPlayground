@@ -13,7 +13,8 @@ struct GithubApiPlaygroundApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UserListView()
+                .environmentObject(NetworkMonitor())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
