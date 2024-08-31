@@ -13,14 +13,14 @@ struct UserDetailView: View {
     @StateObject var userDetailModel = UserDetailModel()
     @StateObject var userRepoModel = UserRepoModel()
     @State private var selectedRepo: UserRepo?
+    @State private var showUserRepoAlert = false
+    @State private var showUserDetailAlert = false
     
     var body: some View {
         VStack {
             if let userDetail = userDetailModel.userDetail {
                 userInfoView(userDetail)
                     .padding(.vertical, 20)
-            } else if let error = userDetailModel.error {
-                
             } else {
                 LoadingView()
                     .frame(maxHeight: 150)
@@ -61,13 +61,23 @@ struct UserDetailView: View {
                         }
                     }
                 }
-            } else if let error = userRepoModel.error {
-                
             } else {
                 LoadingView()
             }
             Spacer()
         }
+        .alert(isPresented: $showUserRepoAlert, content: {
+            Alert.error(userRepoModel.error)
+        })
+        .onChange(of: userRepoModel.error?.localizedDescription, { _, _ in
+            showUserRepoAlert = userRepoModel.error != nil
+        })
+        .alert(isPresented: $showUserDetailAlert, content: {
+            Alert.error(userDetailModel.error)
+        })
+        .onChange(of: userDetailModel.error?.localizedDescription, { _, _ in
+            showUserDetailAlert = userDetailModel.error != nil
+        })
         .onAppear {
             userDetailModel.fetchUserDetail(with: userName)
             userRepoModel.fetchUserRepo(with: userName)
@@ -157,6 +167,8 @@ struct UserDetailView: View {
             }
         }
     }
+    
+    
 }
 
 #Preview {

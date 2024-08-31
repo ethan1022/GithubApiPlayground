@@ -10,14 +10,14 @@ import CoreData
 
 struct UserListView: View {
     @EnvironmentObject var networkMonitor: NetworkMonitor
-    @StateObject private var userModel = UserListModel()
-    @State private var isLoading = false
+    @StateObject private var userListModel = UserListModel()
+    @State private var showErrorAlert = false
 
     var body: some View {
         NavigationView {
             VStack {
                 Text("Github Users")
-                if let users = userModel.users {
+                if let users = userListModel.users {
                     List(users) { user in
                         NavigationLink {
                             UserDetailView(userName: user.login)
@@ -25,20 +25,24 @@ struct UserListView: View {
                             userCell(user)
                                 .onAppear {
                                     if users.last == user {
-                                        userModel.fetchUsersList(since: user.id)
+                                        userListModel.fetchUsersList(since: user.id)
                                     }
                                 }
                         }
                     }
-                } else if let error = userModel.error {
-                    Text("You got an error \(error.localizedDescription)")
                 } else {
                     LoadingView()
                 }
             }
         }
+        .alert(isPresented: $showErrorAlert, content: {
+            Alert.error(userListModel.error)
+        })
+        .onChange(of: userListModel.error?.localizedDescription, { _, _ in
+            showErrorAlert = userListModel.error != nil
+        })
         .onAppear {
-            userModel.fetchUsersList(since: 0)
+            userListModel.fetchUsersList(since: 0)
         }
     }
     

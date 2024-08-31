@@ -29,6 +29,7 @@
 		EFD80C5A2C81F4760050FE8D /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C592C81F4760050FE8D /* NetworkMonitor.swift */; };
 		EFD80C5D2C81F71B0050FE8D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C5C2C81F71B0050FE8D /* LoadingView.swift */; };
 		EFD80C5F2C8205580050FE8D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C5E2C8205580050FE8D /* ImageLoader.swift */; };
+		EFD80C612C8354FB0050FE8D /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C602C8354FB0050FE8D /* AlertExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		EFD80C592C81F4760050FE8D /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		EFD80C5C2C81F71B0050FE8D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EFD80C5E2C8205580050FE8D /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		EFD80C602C8354FB0050FE8D /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				EFD80C552C80AF0A0050FE8D /* CustomWebView.swift */,
 				EFD80C572C80AFF00050FE8D /* RepoDetailView.swift */,
 				EFD80C5C2C81F71B0050FE8D /* LoadingView.swift */,
+				EFD80C602C8354FB0050FE8D /* AlertExtension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				EFD80C412C7E2D100050FE8D /* User.swift in Sources */,
 				EFD80C472C7F4B7B0050FE8D /* UserRequest.swift in Sources */,
 				EFD80C582C80AFF00050FE8D /* RepoDetailView.swift in Sources */,
+				EFD80C612C8354FB0050FE8D /* AlertExtension.swift in Sources */,
 				EFD80C492C7F4B980050FE8D /* ApiRequest.swift in Sources */,
 				EFD80C522C7F82EE0050FE8D /* UserDetailModel.swift in Sources */,
 				EFD80C542C8015220050FE8D /* UserRepoModel.swift in Sources */,
