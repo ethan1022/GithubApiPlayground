@@ -23,6 +23,7 @@ struct UserDetailView: View {
                 
             } else {
                 LoadingView()
+                    .frame(maxHeight: 150)
             }
             
             HStack {
@@ -31,27 +32,41 @@ struct UserDetailView: View {
                     .font(.title3)
                 Spacer()
             }
+            
             if let userReposWithoutFork = userRepoModel.userReposWithoutFork {
-                List(userReposWithoutFork) { userRepo in
-                    Button(action: {
-                        self.selectedRepo = userRepo
-                    }, label: {
-                        repoCell(userRepo)
-                            .onAppear {
-                                if userRepo == userReposWithoutFork.last {
-                                    userRepoModel.loadMore(with: userName)
+                ZStack {
+                    List(userReposWithoutFork) { userRepo in
+                        Button(action: {
+                            self.selectedRepo = userRepo
+                        }, label: {
+                            repoCell(userRepo)
+                                .onAppear {
+                                    if userRepo == userReposWithoutFork.last {
+                                        userRepoModel.loadMore(with: userName)
+                                    }
                                 }
-                            }
-                    })
-                    .sheet(item: $selectedRepo, content: { selectRepo in
-                        RepoDetailView(urlString: selectRepo.html_url)
-                    })
+                        })
+                        .sheet(item: $selectedRepo, content: { selectRepo in
+                            RepoDetailView(urlString: selectRepo.html_url)
+                        })
+                    }
+                    
+                    if userReposWithoutFork.isEmpty {
+                        VStack {
+                            Spacer()
+                            Text("He doesn't have any repositories yet.")
+                                .font(.headline)
+                                .foregroundStyle(.primary)
+                            Spacer()
+                        }
+                    }
                 }
             } else if let error = userRepoModel.error {
                 
             } else {
                 LoadingView()
             }
+            Spacer()
         }
         .onAppear {
             userDetailModel.fetchUserDetail(with: userName)
