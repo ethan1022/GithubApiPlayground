@@ -17,21 +17,26 @@ struct UserListView: View {
         NavigationView {
             VStack {
                 Text("Github Users")
-                if let users = userListModel.users {
-                    List(users) { user in
-                        NavigationLink {
-                            UserDetailView(userName: user.login)
-                        } label: {
-                            userCell(user)
-                                .onAppear {
-                                    if users.last == user {
-                                        userListModel.fetchUsersList(since: user.id)
+                ZStack {
+                    if let users = userListModel.users {
+                        List(users) { user in
+                            NavigationLink {
+                                UserDetailView(userName: user.login)
+                            } label: {
+                                userCell(user)
+                                    .onAppear {
+                                        if users.last == user {
+                                            userListModel.fetchUsersList(since: user.id)
+                                        }
                                     }
-                                }
+                            }
+                        }
+                    } else {
+                        LoadingView()
+                        if !networkMonitor.isConnected {
+                            NoNetworkView()
                         }
                     }
-                } else {
-                    LoadingView()
                 }
             }
         }
@@ -63,4 +68,5 @@ struct UserListView: View {
 
 #Preview {
     UserListView()
+        .environmentObject(NetworkMonitor())
 }

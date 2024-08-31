@@ -15,5 +15,7 @@ struct LoadingView: View {
             ProgressView()
             Spacer()
         }
+        .background(Color.primary.colorInvert())
+        .ignoresSafeArea(.all)
     }
 }

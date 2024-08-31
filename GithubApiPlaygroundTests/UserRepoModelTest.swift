@@ -1,15 +1,15 @@
 //
-//  GithubApiPlaygroundTests.swift
+//  UserRepoModelTest.swift
 //  GithubApiPlaygroundTests
 //
-//  Created by Ethan Wen on 2024/8/27.
+//  Created by Ethan Wen on 2024/8/31.
 //
 
 import XCTest
 @testable import GithubApiPlayground
 
-final class GithubApiPlaygroundTests: XCTestCase {
-
+final class UserRepoModelTest: XCTestCase {
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

@@ -10,6 +10,7 @@ import SwiftUI
 struct UserDetailView: View {
     var userName: String
     
+    @EnvironmentObject var networkMonitor: NetworkMonitor
     @StateObject var userDetailModel = UserDetailModel()
     @StateObject var userRepoModel = UserRepoModel()
     @State private var selectedRepo: UserRepo?
@@ -33,8 +34,8 @@ struct UserDetailView: View {
                 Spacer()
             }
             
-            if let userReposWithoutFork = userRepoModel.userReposWithoutFork {
-                ZStack {
+            ZStack {
+                if let userReposWithoutFork = userRepoModel.userReposWithoutFork {
                     List(userReposWithoutFork) { userRepo in
                         Button(action: {
                             self.selectedRepo = userRepo
@@ -60,9 +61,12 @@ struct UserDetailView: View {
                             Spacer()
                         }
                     }
+                } else {
+                    LoadingView()
+                    if !networkMonitor.isConnected {
+                        NoNetworkView()
+                    }
                 }
-            } else {
-                LoadingView()
             }
             Spacer()
         }
@@ -173,4 +177,5 @@ struct UserDetailView: View {
 
 #Preview {
     UserDetailView(userName: "brynary")
+        .environmentObject(NetworkMonitor())
 }

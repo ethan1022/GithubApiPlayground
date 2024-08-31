@@ -11,7 +11,6 @@
 		EFD80C0E2C7E0D5A0050FE8D /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C0D2C7E0D5A0050FE8D /* UserListView.swift */; };
 		EFD80C102C7E0D5B0050FE8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD80C0F2C7E0D5B0050FE8D /* Assets.xcassets */; };
 		EFD80C132C7E0D5B0050FE8D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD80C122C7E0D5B0050FE8D /* Preview Assets.xcassets */; };
-		EFD80C222C7E0D5B0050FE8D /* GithubApiPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C212C7E0D5B0050FE8D /* GithubApiPlaygroundTests.swift */; };
 		EFD80C2C2C7E0D5B0050FE8D /* GithubApiPlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C2B2C7E0D5B0050FE8D /* GithubApiPlaygroundUITests.swift */; };
 		EFD80C2E2C7E0D5B0050FE8D /* GithubApiPlaygroundUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C2D2C7E0D5B0050FE8D /* GithubApiPlaygroundUITestsLaunchTests.swift */; };
 		EFD80C3B2C7E0D8B0050FE8D /* GithubPersonalToken.txt in Resources */ = {isa = PBXBuildFile; fileRef = EFD80C3A2C7E0D8B0050FE8D /* GithubPersonalToken.txt */; };
@@ -30,6 +29,8 @@
 		EFD80C5D2C81F71B0050FE8D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C5C2C81F71B0050FE8D /* LoadingView.swift */; };
 		EFD80C5F2C8205580050FE8D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C5E2C8205580050FE8D /* ImageLoader.swift */; };
 		EFD80C612C8354FB0050FE8D /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C602C8354FB0050FE8D /* AlertExtension.swift */; };
+		EFD80C632C8357D40050FE8D /* NoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C622C8357D40050FE8D /* NoNetworkView.swift */; };
+		EFD80C652C8363030050FE8D /* UserRepoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C642C8363030050FE8D /* UserRepoModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,6 @@
 		EFD80C0F2C7E0D5B0050FE8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFD80C122C7E0D5B0050FE8D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EFD80C1D2C7E0D5B0050FE8D /* GithubApiPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubApiPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFD80C212C7E0D5B0050FE8D /* GithubApiPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApiPlaygroundTests.swift; sourceTree = "<group>"; };
 		EFD80C272C7E0D5B0050FE8D /* GithubApiPlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubApiPlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD80C2B2C7E0D5B0050FE8D /* GithubApiPlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApiPlaygroundUITests.swift; sourceTree = "<group>"; };
 		EFD80C2D2C7E0D5B0050FE8D /* GithubApiPlaygroundUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApiPlaygroundUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -76,6 +76,8 @@
 		EFD80C5C2C81F71B0050FE8D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EFD80C5E2C8205580050FE8D /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		EFD80C602C8354FB0050FE8D /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
+		EFD80C622C8357D40050FE8D /* NoNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkView.swift; sourceTree = "<group>"; };
+		EFD80C642C8363030050FE8D /* UserRepoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +152,7 @@
 		EFD80C202C7E0D5B0050FE8D /* GithubApiPlaygroundTests */ = {
 			isa = PBXGroup;
 			children = (
-				EFD80C212C7E0D5B0050FE8D /* GithubApiPlaygroundTests.swift */,
+				EFD80C642C8363030050FE8D /* UserRepoModelTest.swift */,
 			);
 			path = GithubApiPlaygroundTests;
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 				EFD80C552C80AF0A0050FE8D /* CustomWebView.swift */,
 				EFD80C572C80AFF00050FE8D /* RepoDetailView.swift */,
 				EFD80C5C2C81F71B0050FE8D /* LoadingView.swift */,
+				EFD80C622C8357D40050FE8D /* NoNetworkView.swift */,
 				EFD80C602C8354FB0050FE8D /* AlertExtension.swift */,
 			);
 			path = View;
@@ -354,6 +357,7 @@
 				EFD80C412C7E2D100050FE8D /* User.swift in Sources */,
 				EFD80C472C7F4B7B0050FE8D /* UserRequest.swift in Sources */,
 				EFD80C582C80AFF00050FE8D /* RepoDetailView.swift in Sources */,
+				EFD80C632C8357D40050FE8D /* NoNetworkView.swift in Sources */,
 				EFD80C612C8354FB0050FE8D /* AlertExtension.swift in Sources */,
 				EFD80C492C7F4B980050FE8D /* ApiRequest.swift in Sources */,
 				EFD80C522C7F82EE0050FE8D /* UserDetailModel.swift in Sources */,
@@ -370,7 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFD80C222C7E0D5B0050FE8D /* GithubApiPlaygroundTests.swift in Sources */,
+				EFD80C652C8363030050FE8D /* UserRepoModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,7 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GithubApiPlayground/Preview Content\"";
-				DEVELOPMENT_TEAM = 87N724V2PB;
+				DEVELOPMENT_TEAM = MH93U267QE;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -555,7 +559,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GithubApiPlayground/Preview Content\"";
-				DEVELOPMENT_TEAM = 87N724V2PB;
+				DEVELOPMENT_TEAM = MH93U267QE;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
