@@ -11,8 +11,6 @@
 		EFD80C0E2C7E0D5A0050FE8D /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C0D2C7E0D5A0050FE8D /* UserListView.swift */; };
 		EFD80C102C7E0D5B0050FE8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD80C0F2C7E0D5B0050FE8D /* Assets.xcassets */; };
 		EFD80C132C7E0D5B0050FE8D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD80C122C7E0D5B0050FE8D /* Preview Assets.xcassets */; };
-		EFD80C152C7E0D5B0050FE8D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C142C7E0D5B0050FE8D /* Persistence.swift */; };
-		EFD80C182C7E0D5B0050FE8D /* GithubApiPlayground.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C162C7E0D5B0050FE8D /* GithubApiPlayground.xcdatamodeld */; };
 		EFD80C222C7E0D5B0050FE8D /* GithubApiPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C212C7E0D5B0050FE8D /* GithubApiPlaygroundTests.swift */; };
 		EFD80C2C2C7E0D5B0050FE8D /* GithubApiPlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C2B2C7E0D5B0050FE8D /* GithubApiPlaygroundUITests.swift */; };
 		EFD80C2E2C7E0D5B0050FE8D /* GithubApiPlaygroundUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD80C2D2C7E0D5B0050FE8D /* GithubApiPlaygroundUITestsLaunchTests.swift */; };
@@ -56,8 +54,6 @@
 		EFD80C0D2C7E0D5A0050FE8D /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		EFD80C0F2C7E0D5B0050FE8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFD80C122C7E0D5B0050FE8D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EFD80C142C7E0D5B0050FE8D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		EFD80C172C7E0D5B0050FE8D /* GithubApiPlayground.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubApiPlayground.xcdatamodel; sourceTree = "<group>"; };
 		EFD80C1D2C7E0D5B0050FE8D /* GithubApiPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubApiPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD80C212C7E0D5B0050FE8D /* GithubApiPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApiPlaygroundTests.swift; sourceTree = "<group>"; };
 		EFD80C272C7E0D5B0050FE8D /* GithubApiPlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubApiPlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,9 +131,7 @@
 				EFD80C3C2C7E0D900050FE8D /* Services */,
 				EFD80C0B2C7E0D5A0050FE8D /* GithubApiPlaygroundApp.swift */,
 				EFD80C0F2C7E0D5B0050FE8D /* Assets.xcassets */,
-				EFD80C142C7E0D5B0050FE8D /* Persistence.swift */,
 				EFD80C3A2C7E0D8B0050FE8D /* GithubPersonalToken.txt */,
-				EFD80C162C7E0D5B0050FE8D /* GithubApiPlayground.xcdatamodeld */,
 				EFD80C112C7E0D5B0050FE8D /* Preview Content */,
 			);
 			path = GithubApiPlayground;
@@ -351,7 +345,6 @@
 			files = (
 				EFD80C4E2C7F78F50050FE8D /* ImageView.swift in Sources */,
 				EFD80C5A2C81F4760050FE8D /* NetworkMonitor.swift in Sources */,
-				EFD80C182C7E0D5B0050FE8D /* GithubApiPlayground.xcdatamodeld in Sources */,
 				EFD80C442C7F49720050FE8D /* UserListModel.swift in Sources */,
 				EFD80C5D2C81F71B0050FE8D /* LoadingView.swift in Sources */,
 				EFD80C3E2C7E0DB90050FE8D /* ApiService.swift in Sources */,
@@ -361,7 +354,6 @@
 				EFD80C492C7F4B980050FE8D /* ApiRequest.swift in Sources */,
 				EFD80C522C7F82EE0050FE8D /* UserDetailModel.swift in Sources */,
 				EFD80C542C8015220050FE8D /* UserRepoModel.swift in Sources */,
-				EFD80C152C7E0D5B0050FE8D /* Persistence.swift in Sources */,
 				EFD80C0E2C7E0D5A0050FE8D /* UserListView.swift in Sources */,
 				EFD80C5F2C8205580050FE8D /* ImageLoader.swift in Sources */,
 				EFD80C0C2C7E0D5A0050FE8D /* GithubApiPlaygroundApp.swift in Sources */,
@@ -696,19 +688,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		EFD80C162C7E0D5B0050FE8D /* GithubApiPlayground.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				EFD80C172C7E0D5B0050FE8D /* GithubApiPlayground.xcdatamodel */,
-			);
-			currentVersion = EFD80C172C7E0D5B0050FE8D /* GithubApiPlayground.xcdatamodel */;
-			path = GithubApiPlayground.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = EFD80C002C7E0D5A0050FE8D /* Project object */;
 }

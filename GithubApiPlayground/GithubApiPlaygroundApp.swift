@@ -9,13 +9,11 @@ import SwiftUI
 
 @main
 struct GithubApiPlaygroundApp: App {
-    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             UserListView()
                 .environmentObject(NetworkMonitor())
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

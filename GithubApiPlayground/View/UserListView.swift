@@ -58,5 +58,5 @@ struct UserListView: View {
 
 
 #Preview {
-    UserListView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    UserListView()
 }
